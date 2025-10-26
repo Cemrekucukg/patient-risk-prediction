@@ -78,28 +78,46 @@ if st.sidebar.button("🔎 Tahmin Et"):
 
 
 
-# SHAP değerlerini hesapla (tek örnek için)
-    explainer = shap.TreeExplainer(model)
-    shap_values = explainer.shap_values(input_data)
+# SHAP 
 
-    # Görsel oluştur
-    st.subheader("📊 Özellik Etki Analizi (SHAP)")
 
-    # Grafik
+feature_names = [
+    "HighBP","HighChol","CholCheck","BMI","Smoker","Stroke",
+    "HeartDisease","PhysActivity","Fruits","Veggies",
+    "HvyAlcohol","AnyHealthcare","NoDocbcCost","GenHealth",
+    "MentHealth","PhysHealth","DiffWalk","Sex","Age","Education","Income"
+]
+
+st.subheader("📊 Özellik Etki Analizi")
+
+try:
+    import shap
+    try:
+        booster = model.get_booster()
+        explainer = shap.TreeExplainer(booster)
+        shap_values = explainer.shap_values(input_data)
+    except Exception:
+        explainer = shap.Explainer(model)
+        shap_values = explainer(input_data)
+
     fig, ax = plt.subplots(figsize=(8, 6))
-    shap.summary_plot(
-        shap_values,
-        input_data,
-        feature_names=[
-            "HighBP", "HighChol", "CholCheck", "BMI", "Smoker", "Stroke",
-            "HeartDisease", "PhysActivity", "Fruits", "Veggies",
-            "HvyAlcohol", "AnyHealthcare", "NoDocbcCost", "GenHealth",
-            "MentHealth", "PhysHealth", "DiffWalk", "Sex", "Age",
-            "Education", "Income"
-        ],
-        plot_type="bar",
-        show=False
-    )
+    vals = shap_values if isinstance(shap_values, np.ndarray) else shap_values.values
+    vals = np.squeeze(vals)
+    order = np.argsort(np.abs(vals))[::-1]
+    ax.barh(np.array(feature_names)[order][::-1], np.array(vals)[order][::-1])
+    ax.set_xlabel("SHAP value (impact on model output)")
     st.pyplot(fig)
+    plt.close(fig)
 
-    st.caption("🔎 Pozitif etki = Diyabet riskini artırır, negatif etki = riski azaltır.")
+except Exception:
+    st.warning("SHAP bu ortamda çalıştırılamadı, modelin yerleşik önem değerlerini gösteriyoruz.")
+    try:
+        importances = model.feature_importances_
+        order = np.argsort(importances)
+        fig, ax = plt.subplots(figsize=(8, 6))
+        ax.barh(np.array(feature_names)[order], importances[order])
+        ax.set_xlabel("Feature importance (XGBoost)")
+        st.pyplot(fig)
+        plt.close(fig)
+    except Exception:
+        st.error("Özellik önem grafiği oluşturulamadı.")

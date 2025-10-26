@@ -8,7 +8,7 @@ __pycache__/
 
 # Veri ve modeller
 data/
-models/
+# models/
 
 # Ortam dosyaları
 .env
