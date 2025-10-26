@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Veri ve modeller
+data/
+models/
+
+# Ortam dosyaları
+.env
+.venv/
