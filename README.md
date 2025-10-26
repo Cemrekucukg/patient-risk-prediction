@@ -10,10 +10,13 @@ It is a full **end-to-end data science application**, including:
 
 ---
 
-## 🚀 Demo
+## 🚀 Demo  
 
-> Coming soon — will be live on Streamlit Cloud after deployment  
-> (Example link: https://cemrekucukg-patient-risk-prediction.streamlit.app)
+The app is live and deployed on **Streamlit Cloud**:  
+🔗 [https://patient-risk-prediction-diabetes.streamlit.app](https://patient-risk-prediction-diabetes.streamlit.app)  
+
+This interactive web app predicts **diabetes risk** based on user health indicators and visualizes feature contributions using **SHAP explainability**.
+
 
 ---
 
