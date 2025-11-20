@@ -116,9 +116,9 @@ This project is licensed under the **MIT License** — free for educational and 
 **Cemre Küçükgöde**  
 🎓 *MSc in Computer Engineering, Ege University*  
 
-💻 **Portfolio:** [cemrekucukgode.com](https://cemrekucukgode.com)  
-📂 **GitHub:** [github.com/Cemrekucukg](https://github.com/Cemrekucukg)  
-🔗 **LinkedIn:** [linkedin.com/in/cemre-kucukgode-](https://linkedin.com/in/cemre-kucukgode)
+💻 **Portfolio:**(https://cemrekucukgode.com)  
+📂 **GitHub:**(https://github.com/Cemrekucukg)  
+🔗 **LinkedIn:**(https://linkedin.com/in/cemre-kucukgode)
 
 ---
 
