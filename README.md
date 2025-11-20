@@ -118,7 +118,7 @@ This project is licensed under the **MIT License** — free for educational and 
 
 💻 **Portfolio:** [cemrekucukgode.com](https://cemrekucukgode.com)  
 📂 **GitHub:** [github.com/Cemrekucukg](https://github.com/Cemrekucukg)  
-🔗 **LinkedIn:** [linkedin.com/in/cemre-kucukgode-](https://linkedin.com/in/cemre-kucukgode-)
+🔗 **LinkedIn:** [linkedin.com/in/cemre-kucukgode-](https://linkedin.com/in/cemre-kucukgode)
 
 ---
 
